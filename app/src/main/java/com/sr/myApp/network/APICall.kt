@@ -1,6 +1,5 @@
 package com.sr.myApp.network
 
-import com.google.gson.JsonObject
 import com.sr.myApp.ui.auth.data.AuthTokenBean
 import com.sr.myApp.ui.auth.data.UserBean
 import com.sr.myApp.ui.home.data.ActivitiesBean

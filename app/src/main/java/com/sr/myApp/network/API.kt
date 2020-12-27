@@ -1,5 +1,8 @@
 package com.sr.myApp.network
 
+/**
+ * API's
+ * */
 class API {
     companion object {
 
@@ -8,8 +11,5 @@ class API {
         const val GET_TOKEN="/oauth2/token"
         const val USER_PROFILE="/1/user/-/profile.json"
         const val USER_ACTIVITIES="/1/user/{userId}/activities/date/{date}.json"
-        const val USER = "/users"
-        const val POST = "/posts"
-        const val COMMENTS = "/comments"
     }
 }

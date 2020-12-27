@@ -5,6 +5,7 @@ data class UserBean(
 )
 
 data class User(
+    val encodedId: String,
     val fullName: String,
     val gender: String,
     val height: Double,

@@ -6,6 +6,13 @@ import io.reactivex.observers.DisposableObserver
 import org.json.JSONObject
 import retrofit2.Response
 
+/**
+ * API callback class
+ * All API call response filtered in this call
+ * We can handle all API response code.
+ *
+ * */
+
 class APICallback<T>(
     private val mListener: OnResponseListener,
     private val requestCode: Int,

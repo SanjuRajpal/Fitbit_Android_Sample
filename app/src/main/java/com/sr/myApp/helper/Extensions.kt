@@ -42,6 +42,11 @@ fun View.inVisible() {
     this.visibility = View.INVISIBLE
 }
 
+/**
+* To add pagination.
+* VISIBLE_THRESHOLD - Number of item visible
+ *
+* */
 fun RecyclerView.addOnScrolledToEnd(onScrolledToEnd: (totalItemCount: Int) -> Unit) {
 
     this.addOnScrollListener(object : RecyclerView.OnScrollListener() {

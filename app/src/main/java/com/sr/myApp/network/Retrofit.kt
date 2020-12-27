@@ -4,14 +4,17 @@ import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.sr.myApp.BuildConfig
 import com.sr.myApp.helper.SharedPrefs
-import com.sr.myApp.ui.MyApp
 import com.sr.myApp.ui.auth.data.AuthTokenBean
-
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+
+/**
+ * Customize retrofit call helps to connect app with web services
+ * Thi call can be initialize at application call
+ * */
 
 class Retrofit {
 
@@ -32,6 +35,10 @@ class Retrofit {
                 builder.header("Accept", "application/json")
                 val isLogin = SharedPrefs.isLoggedIn()
                 if (isLogin) {
+                    /**
+                     * user's authorized token appends every request
+                     * */
+
                     val auth = SharedPrefs.getJsonObject(
                         SharedPrefs.AUTH_TOKEN,
                         AuthTokenBean::class.java
@@ -40,6 +47,9 @@ class Retrofit {
                         "${auth.tokenType} ${auth.accessToken}"
                     builder.header("Authorization", token)
                 } else {
+                    /**
+                     * default authentication token provided by Fitbit
+                     * */
                     builder.header(
                         "Authorization",
                         "Basic MjJCWUxGOjUwYmQyZTQyMTg3YzlhN2U1OWRhM2NmNjU3ZjJkMDFh"

@@ -2,6 +2,11 @@ package com.sr.myApp.network
 
 import io.reactivex.disposables.Disposable
 
+/**
+ * APITask call
+ *
+ * */
+
 class APITask : BaseAPITask() {
 
     private val apiCall: APICall = Retrofit.getRetrofit().create(APICall::class.java)
@@ -33,10 +38,9 @@ class APITask : BaseAPITask() {
 
     fun doGetUserActivities(
         listener: OnResponseListener,
-        userId: String,
         date: String
     ): Disposable? {
-        return getRequest(apiCall.doGetUserActivities(userId, date), listener, userActivity)
+        return getRequest(apiCall.doGetUserActivities(getUserId(), date), listener, userActivity)
     }
 
 }

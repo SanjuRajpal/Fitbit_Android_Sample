@@ -91,6 +91,7 @@ class ActivitiesFragment : BaseFragment<FragmentActivitiesBinding>() {
             br = BR.Activities,
             list = mList
         )
+
     }
 
     private fun doAddMockData() {

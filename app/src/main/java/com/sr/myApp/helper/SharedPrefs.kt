@@ -7,7 +7,9 @@ import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.sr.myApp.ui.MyApp
 
-
+/**
+ * Store data in Local Shared Preference
+ * */
 object SharedPrefs {
 
     const val AUTH_TOKEN = "authToken"

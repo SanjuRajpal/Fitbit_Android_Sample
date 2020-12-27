@@ -7,7 +7,9 @@ import android.net.NetworkCapabilities
 
 object Utils {
 
-
+    /**
+     * Check whether device is connected ot not with internet
+     * */
     fun isConnected(context: Context): Boolean {
         val result: Boolean
         val connectivityManager =
