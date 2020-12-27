@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MyApp</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="home">Home</string>
+    <string name="activities">Activities</string>
+    <string name="more">More</string>
+    <string name="today">Today</string>
+
+    <!-- error messages    -->
+    <string name="e_no_internet">Check your internet connection.</string>
+    <string name="no_record_founds">No records founds</string>
+    <string name="logout">Logout</string>
+    <string name="about_us">About Us</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="privacy_policy">Privacy Policy</string>
+
+    <integer name="slide_animation_duration">200</integer>
+</resources>
