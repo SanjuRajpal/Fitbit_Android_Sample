@@ -7,6 +7,7 @@ data class UserBean(
 data class User(
     val encodedId: String,
     val fullName: String,
+    val dateOfBirth: String,
     val gender: String,
     val height: Double,
     val weight: Double
@@ -19,4 +20,7 @@ data class User(
 
     val mWeight
         get() = "Weight: $weight"
+
+    val mDateOfBirth
+        get() = "DOB: $dateOfBirth"
 }

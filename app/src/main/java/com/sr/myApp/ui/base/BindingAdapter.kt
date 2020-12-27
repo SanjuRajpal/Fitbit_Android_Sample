@@ -8,7 +8,11 @@ import androidx.databinding.ViewDataBinding
 import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.RecyclerView
 
-
+/**
+ * The BindingAdapter provide adapter for recycler view
+ * This adapter work with BR tag provide by data binding
+ * This is also handle click and long click of multiple views.
+ * */
 open class BindingAdapter<T>(
     val layoutId: Int,
     val br: Int = -1,

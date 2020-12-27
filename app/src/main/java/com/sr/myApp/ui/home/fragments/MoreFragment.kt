@@ -14,8 +14,13 @@ class MoreFragment : BaseFragment<FragmentMoreBinding>() {
     override fun viewModel(): BaseViewModel? = null
 
     override fun initFragment() {
+
         tvLogout.setOnClickListener {
+            /**
+             * Clear pref and move to Welcome Screen
+             */
             SharedPrefs.clearPreference()
+            SharedPrefs.setLoggedIn(false)
             startActivity(WelcomeActivity::class.java)
             requireActivity().finishAffinity()
         }

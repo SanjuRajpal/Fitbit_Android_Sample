@@ -7,6 +7,11 @@ import com.sr.myApp.ui.MyApp
 import com.sr.myApp.ui.auth.WelcomeActivity
 import io.reactivex.disposables.Disposable
 
+/**
+ * The BaseViewModel helps to clear ongoing request when context of view model
+ * class no longer available. It also show Welcome screen when user's auth token
+ * is expire.
+ * */
 open class BaseViewModel : ViewModel() {
 
     protected var mDisposable: Disposable? = null
@@ -19,6 +24,7 @@ open class BaseViewModel : ViewModel() {
 
     protected fun onUnauthorized() {
         SharedPrefs.clearPreference()
+        SharedPrefs.setLoggedIn(false)
         val context = MyApp.getInstance()
         val intent = Intent(context, WelcomeActivity::class.java)
         intent.addFlags(

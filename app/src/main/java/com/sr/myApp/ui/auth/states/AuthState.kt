@@ -3,6 +3,9 @@ package com.sr.myApp.ui.auth.states
 import com.sr.myApp.ui.auth.data.AuthTokenBean
 import com.sr.myApp.ui.auth.data.UserBean
 
+/**
+ * This class define the state of authorization screen
+ * */
 sealed class AuthState {
 
     object Initial : AuthState()

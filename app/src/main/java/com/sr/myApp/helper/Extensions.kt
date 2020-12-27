@@ -7,29 +7,6 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-
-fun AppCompatActivity.makeUnresponsive() {
-    window.setFlags(
-        WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-        WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
-    )
-}
-
-fun FragmentActivity.makeUnresponsive() {
-    window.setFlags(
-        WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-        WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
-    )
-}
-
-fun AppCompatActivity.makeResponsive() {
-    window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-}
-
-fun FragmentActivity.makeResponsive() {
-    window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-}
-
 fun View.visible() {
     this.visibility = View.VISIBLE
 }
@@ -45,7 +22,6 @@ fun View.inVisible() {
 /**
 * To add pagination.
 * VISIBLE_THRESHOLD - Number of item visible
- *
 * */
 fun RecyclerView.addOnScrolledToEnd(onScrolledToEnd: (totalItemCount: Int) -> Unit) {
 

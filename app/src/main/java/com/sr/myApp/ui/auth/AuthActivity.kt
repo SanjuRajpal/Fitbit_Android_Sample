@@ -30,6 +30,9 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>() {
         setCallbacks()
     }
 
+    /**
+     * Initialize WebView
+     * */
     @SuppressLint("SetJavaScriptEnabled")
     private fun initWebView() {
         webView.settings.useWideViewPort = true
@@ -67,6 +70,9 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>() {
         webView.loadUrl(Consts.authURL)
     }
 
+    /**
+     * Set callback to handle communication between viewModel and view
+     * */
     private fun setCallbacks() {
         viewModel.state().observe(this, Observer {
             render(it)
@@ -80,20 +86,26 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>() {
             }
             is AuthState.Loading -> {
                 if (state.isVisible) {
-                    visible(binding.progress)
+                    binding.progress.visible()
                 } else {
-                    gone(binding.progress)
+                    binding.progress.gone()
                 }
             }
             is AuthState.Message -> {
                 showMessage(state.error)
             }
             is AuthState.AuthTokenSuccess -> {
-                SharedPrefs.setLoggedIn(true)
+                /**
+                 * Store authentication token response into pref.
+                 */
                 SharedPrefs.putJsonObject(SharedPrefs.AUTH_TOKEN, state.authToken)
                 viewModel.doGetUserProfile()
             }
             is AuthState.LoginSuccess -> {
+                /**
+                 * Store user's data into pref. And move to Home screen
+                 */
+                SharedPrefs.setLoggedIn(true)
                 SharedPrefs.putJsonObject(SharedPrefs.LOGIN_DATA, state.user)
                 startActivity(MainActivity::class.java)
                 finishAffinity()

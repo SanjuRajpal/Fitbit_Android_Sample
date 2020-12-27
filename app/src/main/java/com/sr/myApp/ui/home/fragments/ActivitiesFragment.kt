@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.sr.myApp.BR
 import com.sr.myApp.R
 import com.sr.myApp.databinding.FragmentActivitiesBinding
+import com.sr.myApp.helper.addOnScrolledToEnd
+import com.sr.myApp.helper.gone
+import com.sr.myApp.helper.visible
 import com.sr.myApp.ui.base.BaseFragment
 import com.sr.myApp.ui.base.BindingAdapter
 import com.sr.myApp.ui.home.data.Activity
@@ -30,6 +33,7 @@ class ActivitiesFragment : BaseFragment<FragmentActivitiesBinding>() {
 
     override fun initFragment() {
         setCallbacks()
+        initAdapter()
         llCalender.setOnClickListener { showCalenderPicker() }
     }
 
@@ -65,20 +69,21 @@ class ActivitiesFragment : BaseFragment<FragmentActivitiesBinding>() {
             }
             is HomeState.Loading -> {
                 if (state.isVisible) {
-                    visible(progress)
+                    progress.visible()
                 } else {
-                    gone(progress)
+                    progress.gone()
                 }
             }
             is HomeState.Message -> {
                 showMessage(state.error)
             }
             is HomeState.Activities -> {
-                mList.clear()
+
                 if (!state.activities.activities.isNullOrEmpty()) {
                     mList.addAll(state.activities.activities)
-                    initAdapter()
+                    rvActivities.adapter?.notifyDataSetChanged()
                 } else {
+
                     doAddMockData()
                 }
             }
@@ -92,6 +97,13 @@ class ActivitiesFragment : BaseFragment<FragmentActivitiesBinding>() {
             list = mList
         )
 
+        // add scroll listener for pagination
+        rvActivities.addOnScrolledToEnd {
+//            if (totalRecord > it) {
+//                offset++
+//                viewModel.doGetUsersActivities(selectedDate)
+//            }
+        }
     }
 
     private fun doAddMockData() {

@@ -68,9 +68,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="monospace"
-                android:text="DOB: 1999-01-31"
+                android:text="@{user.mDateOfBirth}"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                tools:text="DOB: 1999-01-31" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -87,6 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="monospace"
+                android:maxLength="14"
                 android:text="@{user.mHeight}"
                 android:textColor="@color/white"
                 android:textSize="16sp"

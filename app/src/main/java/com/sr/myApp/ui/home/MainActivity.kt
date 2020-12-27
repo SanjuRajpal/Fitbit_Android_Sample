@@ -16,6 +16,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun viewModel(): BaseViewModel? = null
 
     override fun initActivity() {
+        /**
+         * Enable bottom menu with navigation controller
+         */
         val navController = findNavController(R.id.nav_host_fragment)
         bottomMenu.setupWithNavController(navController)
     }

@@ -10,8 +10,14 @@ import com.sr.myApp.ui.auth.data.UserBean
 import com.sr.myApp.ui.auth.states.AuthState
 import com.sr.myApp.ui.base.BaseViewModel
 
+/**
+ * Authorization screen View Model
+ * */
 class AuthVM : BaseViewModel(), OnResponseListener {
 
+    /**
+     * set state as initial
+     * */
     private val state = MutableLiveData<AuthState>(AuthState.Initial)
 
     fun state(): LiveData<AuthState> = state

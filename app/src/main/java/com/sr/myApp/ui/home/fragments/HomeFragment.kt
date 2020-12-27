@@ -13,6 +13,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun viewModel(): BaseViewModel? = null
 
     override fun initFragment() {
+
+        /**
+         * Show user's data
+         */
         val binding = getBinding() as FragmentHomeBinding
         val user = (SharedPrefs.getJsonObject(
             SharedPrefs.LOGIN_DATA,

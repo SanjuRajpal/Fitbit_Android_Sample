@@ -11,6 +11,9 @@ import androidx.databinding.ViewDataBinding
 import com.sr.myApp.R
 import kotlinx.android.synthetic.main.toolbar.*
 
+/**
+ * Extended base activity into all the activities
+ */
 abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity() {
 
     val binding: T by lazy {
@@ -29,10 +32,11 @@ abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity() {
         initActivity()
     }
 
-    fun getBinding(): Any = binding
-
     fun getViewModel(): Any? = viewModel()
 
+    /**
+     * setup toolbar and handle back button click
+     */
     protected fun initToolbar() {
         setSupportActionBar(toolbar)
         supportActionBar?.let {
@@ -60,14 +64,6 @@ abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity() {
 
     fun showMessage(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-
-    fun gone(view: View) {
-        view.visibility = View.GONE
-    }
-
-    fun visible(view: View) {
-        view.visibility = View.VISIBLE
     }
 
     override fun onBackPressed() {

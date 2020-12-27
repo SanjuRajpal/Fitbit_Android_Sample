@@ -9,11 +9,13 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.sr.myApp.BR
 
+/**
+ * Extended BaseFragment into all the all fragments
+ */
 abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
 
-    private lateinit var binding:ViewDataBinding
+    private lateinit var binding: ViewDataBinding
 
     abstract fun layoutId(): Int
 
@@ -61,13 +63,5 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
 
     fun showMessage(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-    }
-
-    fun gone(view: View) {
-        view.visibility = View.GONE
-    }
-
-    fun visible(view: View) {
-        view.visibility = View.VISIBLE
     }
 }
