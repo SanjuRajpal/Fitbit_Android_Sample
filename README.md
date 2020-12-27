@@ -1,1 +1,1 @@
-# Fitbit_Android_Sample
+# Fitbit Android Sample
